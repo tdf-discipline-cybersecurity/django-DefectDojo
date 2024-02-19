@@ -1,19 +1,18 @@
 import json
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 from .importer import BlackduckApiImporter
 
 SCAN_TYPE_ID = "BlackDuck API"
 
 
-class ApiBlackduckParser(object):
+class ApiBlackduckParser(Parser):
     """
     Import from Synopsys BlackDuck API /findings
     """
 
-    def get_scan_types(self):
-        return [SCAN_TYPE_ID]
+    scan_types = [SCAN_TYPE_ID]
 
     def get_label_for_scan_types(self, scan_type):
         return SCAN_TYPE_ID

@@ -1,12 +1,12 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.utils import get_npm_cwe
 
 
-class YarnAuditParser(object):
-    def get_scan_types(self):
-        return ["Yarn Audit Scan"]
+class YarnAuditParser(Parser):
+    scan_types = ["Yarn Audit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Yarn Audit Scan"

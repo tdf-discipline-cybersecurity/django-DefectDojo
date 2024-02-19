@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AnchoreCTLVulnsParser(object):
-    def get_scan_types(self):
-        return ["AnchoreCTL Vuln Report"]
+class AnchoreCTLVulnsParser(Parser):
+    scan_types = ["AnchoreCTL Vuln Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AnchoreCTL Vuln Report"

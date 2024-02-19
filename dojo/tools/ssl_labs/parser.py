@@ -4,11 +4,10 @@ import json
 from datetime import datetime
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class SslLabsParser(object):
-    def get_scan_types(self):
-        return ["SSL Labs Scan"]
+class SslLabsParser(Parser):
+    scan_types = ["SSL Labs Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

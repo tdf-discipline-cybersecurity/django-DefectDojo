@@ -2,13 +2,12 @@ import re
 import html2text
 from defusedxml import ElementTree as ET
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class SpotbugsParser(object):
+class SpotbugsParser(Parser):
     """Parser for XML ouput file from Spotbugs (https://github.com/spotbugs/spotbugs)"""
 
-    def get_scan_types(self):
-        return ["SpotBugs Scan"]
+    scan_types = ["SpotBugs Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

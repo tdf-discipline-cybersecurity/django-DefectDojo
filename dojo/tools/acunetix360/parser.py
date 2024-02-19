@@ -4,11 +4,10 @@ import html2text
 from cvss import parser as cvss_parser
 from dateutil import parser
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class Acunetix360Parser(object):
-    def get_scan_types(self):
-        return ["Acunetix360 Scan"]
+class Acunetix360Parser(Parser):
+    scan_types = ["Acunetix360 Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Acunetix360 Scan"

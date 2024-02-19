@@ -2,15 +2,15 @@ import json
 from json.decoder import JSONDecodeError
 import re
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from cvss import CVSS3, CVSS2
 import cvss.parser
 
 
-class AuditJSParser(object):
+class AuditJSParser(Parser):
     """Parser for AuditJS Scan tool"""
 
-    def get_scan_types(self):
-        return ["AuditJS Scan"]
+    scan_types = ["AuditJS Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AuditJS Scan"

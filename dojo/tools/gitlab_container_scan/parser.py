@@ -3,16 +3,15 @@ import textwrap
 
 from dateutil.parser import parse
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GitlabContainerScanParser(object):
+class GitlabContainerScanParser(Parser):
     """
     GitLab's container scanning report
     See more: https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/blob/master/dist/container-scanning-report-format.json
     """
 
-    def get_scan_types(self):
-        return ["GitLab Container Scan"]
+    scan_types = ["GitLab Container Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "GitLab Container Scan Scan"

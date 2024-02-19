@@ -3,13 +3,12 @@ import re
 
 from dateutil import parser
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class DawnScannerParser(object):
+class DawnScannerParser(Parser):
     CVE_REGEX = re.compile(r"CVE-\d{4}-\d{4,7}")
 
-    def get_scan_types(self):
-        return ["DawnScanner Scan"]
+    scan_types = ["DawnScanner Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

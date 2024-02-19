@@ -3,13 +3,12 @@ import json
 from collections import namedtuple
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class OrtParser(object):
+class OrtParser(Parser):
     """Oss Review Toolkit Parser"""
 
-    def get_scan_types(self):
-        return ["ORT evaluated model Importer"]
+    scan_types = ["ORT evaluated model Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return "ORT evaluated model Importer"

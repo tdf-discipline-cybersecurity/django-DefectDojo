@@ -1,12 +1,12 @@
 import json
 import logging
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class ClairParser(object):
-    def get_scan_types(self):
-        return ["Clair Scan"]
+class ClairParser(Parser):
+    scan_types = ["Clair Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

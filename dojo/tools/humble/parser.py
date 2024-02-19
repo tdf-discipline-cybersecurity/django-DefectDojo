@@ -1,12 +1,11 @@
 import json
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class HumbleParser(object):
+class HumbleParser(Parser):
     """Humble (https://github.com/rfc-st/humble)"""
 
-    def get_scan_types(self):
-        return ["Humble Json Importer"]
+    scan_types = ["Humble Json Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

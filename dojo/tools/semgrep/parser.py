@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class SemgrepParser(object):
-    def get_scan_types(self):
-        return ["Semgrep JSON Report"]
+class SemgrepParser(Parser):
+    scan_types = ["Semgrep JSON Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

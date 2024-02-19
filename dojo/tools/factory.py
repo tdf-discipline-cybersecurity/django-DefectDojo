@@ -2,21 +2,22 @@ import re
 import logging
 from django.conf import settings
 from dojo.models import Test_Type, Tool_Type, Tool_Configuration
+from dojo.tools.parser import Parser
 
-PARSERS = {}
+PARSERS:dict[str,Parser] = {}
 
 logger = logging.getLogger(__name__)
 
 
-def register(parser_type):
-    for scan_type in parser_type().get_scan_types():
+def register(parser_type:type[Parser]):
+    for scan_type in parser_type().scan_types:
         parser = parser_type()
         if scan_type.endswith("detailed"):
             parser.set_mode("detailed")
         register_parser(scan_type, parser)
 
 
-def register_parser(scan_type, parser):
+def register_parser(scan_type:str, parser:Parser):
     logger.debug(f"register scan_type:{scan_type} with parser:{parser}")
     # check double registration or registration with an existing key
     if scan_type in PARSERS:
@@ -24,7 +25,7 @@ def register_parser(scan_type, parser):
     PARSERS[scan_type] = parser
 
 
-def get_parser(scan_type):
+def get_parser(scan_type:str) -> Parser:
     """Return a parser by the scan type"""
     if scan_type not in PARSERS:
         raise ValueError(f"Parser '{scan_type}' does not exists")
@@ -51,10 +52,11 @@ def get_choices_sorted():
     return sorted(tuple(res), key=lambda x: x[1].lower())
 
 
-def requires_file(scan_type):
+def requires_file(scan_type:str) -> bool:
     if scan_type not in PARSERS:
         return False
     parser = PARSERS[scan_type]
+    return parser.requires_file(scan_type)
     if hasattr(parser, "requires_file"):
         return parser.requires_file(scan_type)
     # Set a sane default to require files since it is the
@@ -66,7 +68,7 @@ def get_api_scan_configuration_hints():
     res = list()
     for name, parser in PARSERS.items():
         if hasattr(parser, "api_scan_configuration_hint"):
-            scan_types = parser.get_scan_types()
+            scan_types = parser.scan_types
             for scan_type in scan_types:
                 tool_type = parser.requires_tool_type(scan_type)
                 res.append({
@@ -107,7 +109,7 @@ for module_name in os.listdir(package_dir):
                 module = import_module(f"dojo.tools.{module_name}.parser")
                 for attribute_name in dir(module):
                     attribute = getattr(module, attribute_name)
-                    if isclass(attribute) and attribute_name.lower() == module_name.replace("_", "") + "parser":
+                    if isclass(attribute) and attribute != Parser and issubclass(attribute, Parser):
                         register(attribute)
         except:
             logger.exception(f"failed to load {module_name}")

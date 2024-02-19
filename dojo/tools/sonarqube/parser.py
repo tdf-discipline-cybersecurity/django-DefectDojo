@@ -6,18 +6,17 @@ from lxml import etree
 import json
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class SonarQubeParser(object):
+class SonarQubeParser(Parser):
     mode = None
 
     def set_mode(self, mode):
         self.mode = mode
 
-    def get_scan_types(self):
-        return ["SonarQube Scan", "SonarQube Scan detailed"]
+    scan_types = ["SonarQube Scan", "SonarQube Scan detailed"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

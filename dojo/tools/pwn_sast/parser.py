@@ -2,15 +2,14 @@ import json
 import hashlib
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class PWNSASTParser(object):
+class PWNSASTParser(Parser):
     """
     A class that can be used to parse pwn_sast source code scanning results in JSON format.  See https://github.com/0dayinc/pwn for additional details.
     """
 
-    def get_scan_types(self):
-        return ["PWN SAST"]
+    scan_types = ["PWN SAST"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

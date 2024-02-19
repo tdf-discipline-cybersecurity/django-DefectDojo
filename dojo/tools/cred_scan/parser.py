@@ -2,9 +2,9 @@ import csv
 import io
 from dateutil import parser
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class CredScanParser(object):
+class CredScanParser(Parser):
     """
     Credential Scanner (aka CredScan) is a tool developed and maintained by
     Microsoft to identify credential leaks such as those in source code and
@@ -13,8 +13,7 @@ class CredScanParser(object):
     See: https://secdevtools.azurewebsites.net/helpcredscan.html
     """
 
-    def get_scan_types(self):
-        return ["CredScan Scan"]
+    scan_types = ["CredScan Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "CredScan Scan"

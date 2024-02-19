@@ -1,13 +1,13 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.parser_test import ParserTest
 
 
-class GitlabSastParser(object):
+class GitlabSastParser(Parser):
 
-    def get_scan_types(self):
-        return ["GitLab SAST Report"]
+    scan_types = ["GitLab SAST Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

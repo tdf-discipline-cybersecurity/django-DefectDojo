@@ -4,13 +4,12 @@ import re
 from cvss import CVSS3
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class JFrogXrayOnDemandBinaryScanParser(object):
+class JFrogXrayOnDemandBinaryScanParser(Parser):
     """jfrog_xray_scan JSON reports"""
 
-    def get_scan_types(self):
-        return ["JFrog Xray On Demand Binary Scan"]
+    scan_types = ["JFrog Xray On Demand Binary Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

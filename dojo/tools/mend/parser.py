@@ -3,15 +3,14 @@ import json
 import logging
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 __author__ = "dr3dd589"
 
 logger = logging.getLogger(__name__)
 
 
-class MendParser(object):
-    def get_scan_types(self):
-        return ["Mend Scan"]
+class MendParser(Parser):
+    scan_types = ["Mend Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Mend Scan"

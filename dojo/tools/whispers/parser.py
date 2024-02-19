@@ -1,9 +1,9 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class WhispersParser(object):
+class WhispersParser(Parser):
     """
     Identify hardcoded secrets in static structured text
     """
@@ -31,8 +31,7 @@ class WhispersParser(object):
 
         return text[:n_plain] + ("*" * (length - n_plain))
 
-    def get_scan_types(self):
-        return ["Whispers Scan"]
+    scan_types = ["Whispers Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Whispers Scan"

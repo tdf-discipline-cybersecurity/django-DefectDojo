@@ -2,11 +2,10 @@ import json
 
 from cvss.cvss3 import CVSS3
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class SnykParser(object):
-    def get_scan_types(self):
-        return ["Snyk Scan"]
+class SnykParser(Parser):
+    scan_types = ["Snyk Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

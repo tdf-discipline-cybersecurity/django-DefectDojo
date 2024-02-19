@@ -3,14 +3,14 @@ import logging
 import re
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.utils import get_npm_cwe
 
 logger = logging.getLogger(__name__)
 
 
-class NpmAuditParser(object):
-    def get_scan_types(self):
-        return ["NPM Audit Scan"]
+class NpmAuditParser(Parser):
+    scan_types = ["NPM Audit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

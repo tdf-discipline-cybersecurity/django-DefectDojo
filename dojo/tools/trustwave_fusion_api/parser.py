@@ -2,16 +2,16 @@ import json
 import hashlib
 from datetime import datetime
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 from cpe import CPE
 
 
-class TrustwaveFusionAPIParser(object):
+class TrustwaveFusionAPIParser(Parser):
     """
     Import Trustwave Fusion Report from its API in JSON format
     """
 
-    def get_scan_types(self):
-        return ["Trustwave Fusion API Scan"]
+    scan_types = ["Trustwave Fusion API Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Trustwave Fusion API Scan"

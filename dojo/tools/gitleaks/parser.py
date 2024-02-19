@@ -2,15 +2,14 @@ import hashlib
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GitleaksParser(object):
+class GitleaksParser(Parser):
     """
     A class that can be used to parse the Gitleaks JSON report files
     """
 
-    def get_scan_types(self):
-        return ["Gitleaks Scan"]
+    scan_types = ["Gitleaks Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

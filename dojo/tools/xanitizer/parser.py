@@ -5,11 +5,10 @@ import re
 from defusedxml import ElementTree as ET
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class XanitizerParser(object):
-    def get_scan_types(self):
-        return ["Xanitizer Scan"]
+class XanitizerParser(Parser):
+    scan_types = ["Xanitizer Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Xanitizer Scan"

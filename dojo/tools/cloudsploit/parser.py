@@ -3,18 +3,17 @@ import json
 from datetime import datetime
 
 from dojo.models import Finding  # , Endpoint
-
+from dojo.tools.parser import Parser
 # from logging import critical
 # from urllib.parse import urlparse
 
 
-class CloudsploitParser(object):
+class CloudsploitParser(Parser):
     """
     AquaSecurity CloudSploit https://github.com/aquasecurity/cloudsploit
     """
 
-    def get_scan_types(self):
-        return ["Cloudsploit Scan"]
+    scan_types = ["Cloudsploit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Cloudsploit Scan"

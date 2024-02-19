@@ -5,13 +5,12 @@ import html2text
 
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class BurpGraphQLParser(object):
-    def get_scan_types(self):
-        return ["Burp GraphQL API"]
+class BurpGraphQLParser(Parser):
+    scan_types = ["Burp GraphQL API"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

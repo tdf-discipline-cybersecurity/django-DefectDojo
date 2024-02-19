@@ -4,13 +4,13 @@ import re
 from defusedxml.ElementTree import parse
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from django.core.validators import validate_ipv46_address
 from django.core.exceptions import ValidationError
 
 
-class OpenscapParser(object):
-    def get_scan_types(self):
-        return ["Openscap Vulnerability Scan"]
+class OpenscapParser(Parser):
+    scan_types = ["Openscap Vulnerability Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

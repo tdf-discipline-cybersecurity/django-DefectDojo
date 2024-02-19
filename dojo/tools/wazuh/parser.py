@@ -1,16 +1,15 @@
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class WazuhParser(object):
+class WazuhParser(Parser):
     """
     Use Wazuh Vulnerability API to retrieve the findings
     The vulnerabilities with condition "Package unfixed" are skipped because there is no fix out yet.
     https://github.com/wazuh/wazuh/issues/14560
     """
 
-    def get_scan_types(self):
-        return ["Wazuh"]
+    scan_types = ["Wazuh"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Wazuh"

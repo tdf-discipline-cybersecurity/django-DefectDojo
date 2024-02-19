@@ -2,9 +2,9 @@ import json
 import hashlib
 import re
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class MobsfscanParser(object):
+class MobsfscanParser(Parser):
     """
     A class that can be used to parse the mobsfscan (https://github.com/MobSF/mobsfscan) JSON report file.
     """
@@ -15,8 +15,7 @@ class MobsfscanParser(object):
         "INFO": "Low",
     }
 
-    def get_scan_types(self):
-        return ["Mobsfscan Scan"]
+    scan_types = ["Mobsfscan Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Mobsfscan Scan"

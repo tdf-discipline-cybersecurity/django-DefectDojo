@@ -1,17 +1,16 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GitlabAPIFuzzingParser(object):
+class GitlabAPIFuzzingParser(Parser):
     """
     GitLab API Fuzzing Report
 
     Ref: https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/blob/master/dist/coverage-fuzzing-report-format.json
     """
 
-    def get_scan_types(self):
-        return ["GitLab API Fuzzing Report Scan"]
+    scan_types = ["GitLab API Fuzzing Report Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "GitLab API Fuzzing Report Scan"

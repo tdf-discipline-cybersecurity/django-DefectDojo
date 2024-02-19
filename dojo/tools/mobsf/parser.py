@@ -5,12 +5,11 @@ from datetime import datetime
 from html2text import html2text
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
+class MobSFParser(Parser):
 
-class MobSFParser(object):
-
-    def get_scan_types(self):
-        return ["MobSF Scan"]
+    scan_types = ["MobSF Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "MobSF Scan"

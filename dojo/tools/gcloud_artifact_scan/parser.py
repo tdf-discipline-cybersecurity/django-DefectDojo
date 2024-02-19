@@ -1,10 +1,9 @@
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GCloudArtifactScanParser(object):
-    def get_scan_types(self):
-        return ["Google Cloud Artifact Vulnerability Scan"]
+class GCloudArtifactScanParser(Parser):
+    scan_types = ["Google Cloud Artifact Vulnerability Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

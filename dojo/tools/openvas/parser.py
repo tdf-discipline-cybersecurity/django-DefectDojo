@@ -5,7 +5,7 @@ from dateutil.parser import parse
 from xml.dom import NamespaceErr
 from defusedxml import ElementTree as ET
 from dojo.models import Finding, Endpoint
-
+from dojo.tools.parser import Parser
 
 class ColumnMappingStrategy(object):
     mapped_column = None
@@ -194,7 +194,7 @@ class DuplicateColumnMappingStrategy(ColumnMappingStrategy):
         finding.duplicate = self.evaluate_bool_value(column_value)
 
 
-class OpenVASParser(object):
+class OpenVASParser(Parser):
     def create_chain(self):
         date_column_strategy = DateColumnMappingStrategy()
         title_column_strategy = TitleColumnMappingStrategy()
@@ -239,8 +239,7 @@ class OpenVASParser(object):
             index += 1
         return column_names
 
-    def get_scan_types(self):
-        return ["OpenVAS Parser"]
+    scan_types = ["OpenVAS Parser"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

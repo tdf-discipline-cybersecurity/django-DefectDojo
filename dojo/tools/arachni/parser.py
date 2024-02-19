@@ -5,17 +5,16 @@ import html2text
 from django.utils.encoding import force_str
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class ArachniParser(object):
+class ArachniParser(Parser):
     """Arachni Web Scanner (http://arachni-scanner.com/wiki)
 
     Reports are generated with arachni_reporter tool:
     `./arachni_reporter --reporter 'json' js.com.afr`
     """
 
-    def get_scan_types(self):
-        return ["Arachni Scan"]
+    scan_types = ["Arachni Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Arachni Scan"

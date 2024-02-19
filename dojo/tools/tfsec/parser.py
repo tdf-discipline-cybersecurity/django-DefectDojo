@@ -1,9 +1,9 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class TFSecParser(object):
+class TFSecParser(Parser):
     """
     A class that can be used to parse the tfsec JSON report file
     """
@@ -19,8 +19,7 @@ class TFSecParser(object):
         "INFO": "Info",
     }
 
-    def get_scan_types(self):
-        return ["TFSec Scan"]
+    scan_types = ["TFSec Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "TFSec Scan"

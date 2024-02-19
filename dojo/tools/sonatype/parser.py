@@ -5,13 +5,12 @@ So these are just skipped, since there is nothing much to do with them here
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class SonatypeParser(object):
+class SonatypeParser(Parser):
     # This parser does not deal with licenses information.
 
-    def get_scan_types(self):
-        return ["Sonatype Application Scan"]
+    scan_types = ["Sonatype Application Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

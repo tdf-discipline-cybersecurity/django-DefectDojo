@@ -5,13 +5,12 @@ import sys
 import datetime
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class ContrastParser(object):
+class ContrastParser(Parser):
     """Contrast Scanner CSV Report"""
 
-    def get_scan_types(self):
-        return ["Contrast Scan"]
+    scan_types = ["Contrast Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

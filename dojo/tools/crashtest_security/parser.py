@@ -6,7 +6,7 @@ import re
 from defusedxml import ElementTree as ET
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 class CrashtestSecurityJsonParser(object):
     """
@@ -224,11 +224,10 @@ class CrashtestSecurityXmlParser(object):
         return items
 
 
-class CrashtestSecurityParser(object):
+class CrashtestSecurityParser(Parser):
     """SSLYze support JSON and XML"""
 
-    def get_scan_types(self):
-        return ["Crashtest Security JSON File", "Crashtest Security XML File"]
+    scan_types = ["Crashtest Security JSON File", "Crashtest Security XML File"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

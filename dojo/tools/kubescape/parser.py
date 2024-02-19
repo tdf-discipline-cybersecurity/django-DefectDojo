@@ -1,10 +1,9 @@
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class KubescapeParser(object):
-    def get_scan_types(self):
-        return ["Kubescape JSON Importer"]
+class KubescapeParser(Parser):
+    scan_types = ["Kubescape JSON Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

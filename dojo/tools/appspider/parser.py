@@ -2,13 +2,12 @@ import html2text
 from defusedxml import ElementTree
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class AppSpiderParser(object):
+class AppSpiderParser(Parser):
     """Parser for Rapid7 AppSpider reports"""
 
-    def get_scan_types(self):
-        return ["AppSpider Scan"]
+    scan_types = ["AppSpider Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AppSpider Scan"

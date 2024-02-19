@@ -1,17 +1,17 @@
 import json
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 import zipfile
 
 
-class MSDefenderParser(object):
+class MSDefenderParser(Parser):
     """
     Import from MSDefender findings
     """
     def __init__(self):
         self.findings = []
 
-    def get_scan_types(self):
-        return ["MSDefender Parser"]
+    scan_types = ["MSDefender Parser"]
 
     def get_label_for_scan_types(self, scan_type):
         return "MSDefender Parser"

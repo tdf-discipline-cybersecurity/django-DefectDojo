@@ -1,16 +1,16 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dateutil import parser
 
 
-class GgshieldParser(object):
+class GgshieldParser(Parser):
     """
     A class that can be used to parse the Gitleaks JSON report files
     """
 
-    def get_scan_types(self):
-        return ["Ggshield Scan"]
+    scan_types = ["Ggshield Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

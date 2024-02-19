@@ -2,15 +2,14 @@ import json
 import hashlib
 import dateutil.parser
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class DetectSecretsParser(object):
+class DetectSecretsParser(Parser):
     """
     A class that can be used to parse the detect-secrets JSON report file
     """
 
-    def get_scan_types(self):
-        return ["Detect-secrets Scan"]
+    scan_types = ["Detect-secrets Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Detect-secrets Scan"

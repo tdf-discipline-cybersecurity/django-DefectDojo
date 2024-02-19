@@ -4,11 +4,10 @@ import hashlib
 from datetime import datetime
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class BundlerAuditParser(object):
-    def get_scan_types(self):
-        return ["Bundler-Audit Scan"]
+class BundlerAuditParser(Parser):
+    scan_types = ["Bundler-Audit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Bundler-Audit Scan"

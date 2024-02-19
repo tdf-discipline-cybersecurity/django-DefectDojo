@@ -2,11 +2,10 @@ import json
 
 from datetime import datetime
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class MeterianParser(object):
-    def get_scan_types(self):
-        return ["Meterian Scan"]
+class MeterianParser(Parser):
+    scan_types = ["Meterian Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

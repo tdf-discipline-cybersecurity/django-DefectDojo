@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AquaParser(object):
-    def get_scan_types(self):
-        return ["Aqua Scan"]
+class AquaParser(Parser):
+    scan_types = ["Aqua Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Aqua Scan"

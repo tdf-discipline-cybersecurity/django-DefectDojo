@@ -10,9 +10,9 @@ from django.conf import settings
 from django.utils import timezone
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class VeracodeScaParser(object):
+class VeracodeScaParser(Parser):
     vc_severity_mapping = {
         1: "Info",
         2: "Low",
@@ -21,8 +21,7 @@ class VeracodeScaParser(object):
         5: "Critical",
     }
 
-    def get_scan_types(self):
-        return ["Veracode SourceClear Scan"]
+    scan_types = ["Veracode SourceClear Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Veracode SourceClear Scan"

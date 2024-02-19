@@ -1,10 +1,9 @@
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class RedHatSatelliteParser(object):
-    def get_scan_types(self):
-        return ["Red Hat Satellite"]
+class RedHatSatelliteParser(Parser):
+    scan_types = ["Red Hat Satellite"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

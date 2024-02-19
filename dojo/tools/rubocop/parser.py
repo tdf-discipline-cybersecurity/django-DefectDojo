@@ -1,7 +1,7 @@
 import json
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 class RubocopParser:
     ID = "Rubocop Scan"
@@ -21,8 +21,7 @@ class RubocopParser:
         "fatal": "Critical",
     }
 
-    def get_scan_types(self):
-        return [self.ID]
+    scan_types = [ID]
 
     def get_label_for_scan_types(self, scan_type):
         return self.ID

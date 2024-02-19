@@ -2,13 +2,12 @@ import json
 from datetime import datetime
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class CoverityApiParser(object):
+class CoverityApiParser(Parser):
     """Parser that can load data from Synopsys Coverity API"""
 
-    def get_scan_types(self):
-        return ["Coverity API"]
+    scan_types = ["Coverity API"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Coverity API"

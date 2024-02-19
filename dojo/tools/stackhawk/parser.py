@@ -1,6 +1,7 @@
 import json
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from django.utils.dateparse import parse_datetime
 
 
@@ -14,13 +15,12 @@ class StackHawkScanMetadata:
         self.service = completed_scan["scan"]["application"]
 
 
-class StackHawkParser(object):
+class StackHawkParser(Parser):
     """
     DAST findings from StackHawk
     """
 
-    def get_scan_types(self):
-        return ["StackHawk HawkScan"]
+    scan_types = ["StackHawk HawkScan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "StackHawk HawkScan"

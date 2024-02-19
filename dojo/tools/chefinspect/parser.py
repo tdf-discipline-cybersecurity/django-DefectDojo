@@ -1,10 +1,9 @@
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class ChefInspectParser(object):
-    def get_scan_types(self):
-        return ["Chef Inspect Log"]
+class ChefInspectParser(Parser):
+    scan_types = ["Chef Inspect Log"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

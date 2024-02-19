@@ -2,7 +2,7 @@ import hashlib
 import json
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 NEUVECTOR_SCAN_NAME = "NeuVector (compliance)"
 
@@ -135,9 +135,8 @@ def convert_severity(severity):
         return severity.title()
 
 
-class NeuVectorComplianceParser(object):
-    def get_scan_types(self):
-        return [NEUVECTOR_SCAN_NAME]
+class NeuVectorComplianceParser(Parser):
+    scan_types = [NEUVECTOR_SCAN_NAME]
 
     def get_label_for_scan_types(self, scan_type):
         return NEUVECTOR_SCAN_NAME

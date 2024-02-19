@@ -5,19 +5,18 @@ import logging
 from defusedxml.ElementTree import parse
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 
 logger = logging.getLogger(__name__)
 
 
-class WapitiParser(object):
+class WapitiParser(Parser):
     """The web-application vulnerability scanner
 
     see: https://wapiti.sourceforge.io/
     """
 
-    def get_scan_types(self):
-        return ["Wapiti Scan"]
+    scan_types = ["Wapiti Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Wapiti Scan"

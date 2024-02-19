@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class HadolintParser(object):
-    def get_scan_types(self):
-        return ["Hadolint Dockerfile check"]
+class HadolintParser(Parser):
+    scan_types = ["Hadolint Dockerfile check"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

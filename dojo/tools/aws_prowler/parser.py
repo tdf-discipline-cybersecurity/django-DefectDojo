@@ -8,11 +8,10 @@ import textwrap
 from datetime import date
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AWSProwlerParser(object):
-    def get_scan_types(self):
-        return ["AWS Prowler Scan"]
+class AWSProwlerParser(Parser):
+    scan_types = ["AWS Prowler Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AWS Prowler Scan"

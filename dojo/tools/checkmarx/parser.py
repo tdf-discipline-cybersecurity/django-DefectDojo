@@ -6,14 +6,14 @@ from dateutil import parser
 from defusedxml import ElementTree
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.utils import add_language
 
 logger = logging.getLogger(__name__)
 
 
-class CheckmarxParser(object):
-    def get_scan_types(self):
-        return ["Checkmarx Scan", "Checkmarx Scan detailed"]
+class CheckmarxParser(Parser):
+    scan_types = ["Checkmarx Scan", "Checkmarx Scan detailed"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

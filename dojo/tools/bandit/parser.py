@@ -2,11 +2,10 @@ import json
 import dateutil.parser
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class BanditParser(object):
-    def get_scan_types(self):
-        return ["Bandit Scan"]
+class BanditParser(Parser):
+    scan_types = ["Bandit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Bandit Scan"

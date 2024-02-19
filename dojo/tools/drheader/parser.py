@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class DrHeaderParser(object):
-    def get_scan_types(self):
-        return ["DrHeader JSON Importer"]
+class DrHeaderParser(Parser):
+    scan_types = ["DrHeader JSON Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

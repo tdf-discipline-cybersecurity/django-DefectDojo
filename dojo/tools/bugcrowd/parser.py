@@ -4,11 +4,10 @@ import io
 
 from dateutil import parser
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class BugCrowdParser(object):
-    def get_scan_types(self):
-        return ["BugCrowd Scan"]
+class BugCrowdParser(Parser):
+    scan_types = ["BugCrowd Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "BugCrowd Scan"

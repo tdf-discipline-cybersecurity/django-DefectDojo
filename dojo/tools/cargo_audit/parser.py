@@ -1,15 +1,14 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class CargoAuditParser(object):
+class CargoAuditParser(Parser):
     """
     A class that can be used to parse the cargo audit JSON report file
     """
 
-    def get_scan_types(self):
-        return ["CargoAudit Scan"]
+    scan_types = ["CargoAudit Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "CargoAudit Scan"

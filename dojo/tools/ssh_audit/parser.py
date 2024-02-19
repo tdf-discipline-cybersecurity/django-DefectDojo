@@ -1,10 +1,9 @@
 import json
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class SSHAuditParser(object):
-    def get_scan_types(self):
-        return ["SSH Audit Importer"]
+class SSHAuditParser(Parser):
+    scan_types = ["SSH Audit Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

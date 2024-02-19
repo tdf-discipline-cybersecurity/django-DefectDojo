@@ -9,11 +9,11 @@ from packageurl import PackageURL
 from datetime import datetime
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class DependencyCheckParser(object):
+class DependencyCheckParser(Parser):
     SEVERITY_MAPPING = {
         "info": "Info",
         "low": "Low",
@@ -345,8 +345,7 @@ class DependencyCheckParser(object):
 
         return finding
 
-    def get_scan_types(self):
-        return ["Dependency Check Scan"]
+    scan_types = ["Dependency Check Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

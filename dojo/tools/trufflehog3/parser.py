@@ -2,11 +2,10 @@ import hashlib
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class TruffleHog3Parser(object):
-    def get_scan_types(self):
-        return ["Trufflehog3 Scan"]
+class TruffleHog3Parser(Parser):
+    scan_types = ["Trufflehog3 Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Trufflehog3 Scan"

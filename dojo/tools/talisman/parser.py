@@ -2,18 +2,14 @@ import hashlib
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class TalismanParser(object):
+class TalismanParser(Parser):
     """
     A class that can be used to parse the Talisman JSON report files
     """
 
-    def get_scan_types(self):
-        """
-        Get scan type
-        """
-        return ["Talisman Scan"]
+    scan_types = ["Talisman Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         """

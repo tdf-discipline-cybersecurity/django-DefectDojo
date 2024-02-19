@@ -5,11 +5,10 @@ import json
 from dateutil import parser
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class BrakemanParser(object):
-    def get_scan_types(self):
-        return ["Brakeman Scan"]
+class BrakemanParser(Parser):
+    scan_types = ["Brakeman Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Brakeman Scan"

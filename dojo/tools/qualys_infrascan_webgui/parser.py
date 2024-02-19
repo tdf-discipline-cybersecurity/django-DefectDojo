@@ -6,7 +6,7 @@ from dateutil import parser
 from defusedxml import ElementTree
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
@@ -126,9 +126,8 @@ def qualys_convert_severity(raw_val):
         return "Info"
 
 
-class QualysInfrascanWebguiParser(object):
-    def get_scan_types(self):
-        return ["Qualys Infrastructure Scan (WebGUI XML)"]
+class QualysInfrascanWebguiParser(Parser):
+    scan_types = ["Qualys Infrastructure Scan (WebGUI XML)"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

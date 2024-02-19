@@ -1,18 +1,18 @@
 import hashlib
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from .importer import BlackduckBinaryAnalysisImporter
 from cvss import CVSS2, CVSS3
 
 
-class BlackduckBinaryAnalysisParser(object):
+class BlackduckBinaryAnalysisParser(Parser):
     """
     Report type(s) from Blackduck Binary Analysis compatible with DefectDojo:
     - Single CSV file containing vulnerable components
     """
 
-    def get_scan_types(self):
-        return ["Blackduck Binary Analysis"]
+    scan_types = ["Blackduck Binary Analysis"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Blackduck Binary Analysis"

@@ -1,9 +1,9 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class MozillaObservatoryParser(object):
+class MozillaObservatoryParser(Parser):
     """Mozilla Observatory
 
     See: https://observatory.mozilla.org
@@ -13,8 +13,7 @@ class MozillaObservatoryParser(object):
     See: https://github.com/mozilla/http-observatory
     """
 
-    def get_scan_types(self):
-        return ["Mozilla Observatory Scan"]
+    scan_types = ["Mozilla Observatory Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Mozilla Observatory Scan"

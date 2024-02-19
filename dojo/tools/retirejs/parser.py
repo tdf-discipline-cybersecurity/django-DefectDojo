@@ -2,11 +2,10 @@ import hashlib
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class RetireJsParser(object):
-    def get_scan_types(self):
-        return ["Retire.js Scan"]
+class RetireJsParser(Parser):
+    scan_types = ["Retire.js Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Retire.js Scan"

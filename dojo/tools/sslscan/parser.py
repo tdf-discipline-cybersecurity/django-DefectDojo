@@ -4,13 +4,12 @@ from xml.dom import NamespaceErr
 from defusedxml import ElementTree as ET
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 __author__ = "dr3dd589"
 
 
-class SslscanParser(object):
-    def get_scan_types(self):
-        return ["Sslscan"]
+class SslscanParser(Parser):
+    scan_types = ["Sslscan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

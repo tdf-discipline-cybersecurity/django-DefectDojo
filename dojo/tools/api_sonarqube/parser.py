@@ -1,12 +1,11 @@
 from .importer import SonarQubeApiImporter
-
+from dojo.tools.parser import Parser
 
 SCAN_SONARQUBE_API = "SonarQube API Import"
 
 
-class ApiSonarQubeParser(object):
-    def get_scan_types(self):
-        return [SCAN_SONARQUBE_API]
+class ApiSonarQubeParser(Parser):
+    scan_types = [SCAN_SONARQUBE_API]
 
     def get_label_for_scan_types(self, scan_type):
         return SCAN_SONARQUBE_API

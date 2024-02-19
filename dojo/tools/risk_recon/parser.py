@@ -2,12 +2,12 @@ import json
 
 import dateutil
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.risk_recon.api import RiskReconAPI
 
 
-class RiskReconParser(object):
-    def get_scan_types(self):
-        return ["Risk Recon API Importer"]
+class RiskReconParser(Parser):
+    scan_types = ["Risk Recon API Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Risk Recon API Importer"

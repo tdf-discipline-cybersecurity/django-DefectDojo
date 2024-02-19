@@ -5,9 +5,9 @@ import re
 from typing import Union, List
 
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class WhiteHatSentinelParser(object):
+class WhiteHatSentinelParser(Parser):
     """
     A class to parse WhiteHat Sentinel vulns from the WhiteHat Sentinel API vuln?query_site=[
     SITE_ID]&format=json&display_attack_vectors=all&display_custom_risk=1&display_risk=1&display_description=custom
@@ -15,8 +15,7 @@ class WhiteHatSentinelParser(object):
 
     _LOGGER = logging.getLogger(__name__)
 
-    def get_scan_types(self):
-        return ["WhiteHat Sentinel"]
+    scan_types = ["WhiteHat Sentinel"]
 
     def get_label_for_scan_types(self, scan_type):
         return "WhiteHat Sentinel"

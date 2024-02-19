@@ -3,13 +3,12 @@ import json
 from datetime import datetime
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class WpscanParser(object):
+class WpscanParser(Parser):
     """WPScan - WordPress Security Scanner"""
 
-    def get_scan_types(self):
-        return ["Wpscan"]
+    scan_types = ["Wpscan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Wpscan"

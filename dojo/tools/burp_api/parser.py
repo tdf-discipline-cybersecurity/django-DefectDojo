@@ -3,7 +3,7 @@ import logging
 import base64
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
@@ -15,11 +15,10 @@ DESCRIPTION_TEMPLATE = """**{title}**
 """
 
 
-class BurpApiParser(object):
+class BurpApiParser(Parser):
     """Parser that can load data from Burp API"""
 
-    def get_scan_types(self):
-        return ["Burp REST API"]
+    scan_types = ["Burp REST API"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Burp REST API"

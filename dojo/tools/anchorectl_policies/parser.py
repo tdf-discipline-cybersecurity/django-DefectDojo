@@ -5,13 +5,12 @@ from datetime import datetime
 from json.decoder import JSONDecodeError
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
 class AnchoreCTLPoliciesParser:
-    def get_scan_types(self):
-        return ["AnchoreCTL Policies Report"]
+    scan_types = ["AnchoreCTL Policies Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AnchoreCTL Policies Report"

@@ -2,19 +2,19 @@ import json
 import textwrap
 from datetime import datetime
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from .importer import CobaltApiImporter
 
 
 SCAN_COBALTIO_API = "Cobalt.io API Import"
 
 
-class ApiCobaltParser(object):
+class ApiCobaltParser(Parser):
     """
     Import from Cobalt.io API /findings
     """
 
-    def get_scan_types(self):
-        return [SCAN_COBALTIO_API]
+    scan_types = [SCAN_COBALTIO_API]
 
     def get_label_for_scan_types(self, scan_type):
         return SCAN_COBALTIO_API

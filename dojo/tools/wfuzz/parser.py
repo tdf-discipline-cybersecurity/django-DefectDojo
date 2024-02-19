@@ -3,9 +3,9 @@ import hashlib
 import hyperlink
 
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class WFuzzParser(object):
+class WFuzzParser(Parser):
     """
     A class that can be used to parse the WFuzz JSON report files
     """
@@ -19,8 +19,7 @@ class WFuzzParser(object):
         "403": "Medium",
     }
 
-    def get_scan_types(self):
-        return ["WFuzz JSON report"]
+    scan_types = ["WFuzz JSON report"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

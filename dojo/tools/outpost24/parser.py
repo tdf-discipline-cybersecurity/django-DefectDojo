@@ -3,13 +3,12 @@ import logging
 from defusedxml import ElementTree
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class Outpost24Parser(object):
-    def get_scan_types(self):
-        return ["Outpost24 Scan"]
+class Outpost24Parser(Parser):
+    scan_types = ["Outpost24 Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Outpost24 Scan"

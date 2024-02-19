@@ -3,16 +3,16 @@ import textwrap
 from datetime import datetime
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from html2text import html2text
 
 
-class AWSScout2Parser(object):
+class AWSScout2Parser(Parser):
     # FIXME bad very bad
     item_data = ""
     pdepth = 0
 
-    def get_scan_types(self):
-        return ["AWS Scout2 Scan"]
+    scan_types = ["AWS Scout2 Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AWS Scout2 Scan"

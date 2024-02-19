@@ -1,12 +1,11 @@
 import json
 from datetime import datetime
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
+class AwsSecurityHubParser(Parser):
 
-class AwsSecurityHubParser(object):
-
-    def get_scan_types(self):
-        return ["AWS Security Hub Scan"]
+    scan_types = ["AWS Security Hub Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AWS Security Hub Scan"

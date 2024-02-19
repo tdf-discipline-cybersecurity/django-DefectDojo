@@ -3,11 +3,10 @@ import hashlib
 import io
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class TestsslParser(object):
-    def get_scan_types(self):
-        return ["Testssl Scan"]
+class TestsslParser(Parser):
+    scan_types = ["Testssl Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Testssl Scan"

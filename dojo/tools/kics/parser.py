@@ -1,9 +1,9 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class KICSParser(object):
+class KICSParser(Parser):
     """
     A class that can be used to parse the KICS JSON report file
     """
@@ -16,8 +16,7 @@ class KICSParser(object):
         "INFO": "Info",
     }
 
-    def get_scan_types(self):
-        return ["KICS Scan"]
+    scan_types = ["KICS Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "KICS Scan"

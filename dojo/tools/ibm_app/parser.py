@@ -4,13 +4,12 @@ import logging
 from defusedxml import ElementTree
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 LOGGER = logging.getLogger(__name__)
 
 
-class IbmAppParser(object):
-    def get_scan_types(self):
-        return ["IBM AppScan DAST"]
+class IbmAppParser(Parser):
+    scan_types = ["IBM AppScan DAST"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

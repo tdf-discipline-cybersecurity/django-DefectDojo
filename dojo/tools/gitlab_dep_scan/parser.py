@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GitlabDepScanParser(object):
-    def get_scan_types(self):
-        return ["GitLab Dependency Scanning Report"]
+class GitlabDepScanParser(Parser):
+    scan_types = ["GitLab Dependency Scanning Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

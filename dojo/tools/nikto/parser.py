@@ -7,11 +7,11 @@ from defusedxml import ElementTree as ET
 from django.core.exceptions import ValidationError
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class NiktoParser(object):
+class NiktoParser(Parser):
     """Nikto web server scanner - https://cirt.net/Nikto2
 
     The current parser support 3 sources:
@@ -22,8 +22,7 @@ class NiktoParser(object):
     See: https://github.com/sullo/nikto
     """
 
-    def get_scan_types(self):
-        return ["Nikto Scan"]
+    scan_types = ["Nikto Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

@@ -6,18 +6,17 @@ import dateutil
 from cvss import CVSS3
 from defusedxml import ElementTree
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 LOGGER = logging.getLogger(__name__)
 
 
-class CycloneDXParser(object):
+class CycloneDXParser(Parser):
     """CycloneDX is a lightweight software bill of materials (SBOM) standard designed for use in application security
     contexts and supply chain component analysis.
     https://www.cyclonedx.org/
     """
 
-    def get_scan_types(self):
-        return ["CycloneDX Scan"]
+    scan_types = ["CycloneDX Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "CycloneDX Scan"

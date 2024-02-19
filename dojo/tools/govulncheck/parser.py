@@ -3,15 +3,14 @@ from itertools import groupby
 from itertools import islice
 import logging
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 SEVERITY = "Info"
 
 
 class GovulncheckParser:
-    def get_scan_types(self):
-        return ["Govulncheck Scanner"]
+    scan_types = ["Govulncheck Scanner"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

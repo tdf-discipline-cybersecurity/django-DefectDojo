@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class CheckovParser(object):
-    def get_scan_types(self):
-        return ["Checkov Scan"]
+class CheckovParser(Parser):
+    scan_types = ["Checkov Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Checkov Scan"

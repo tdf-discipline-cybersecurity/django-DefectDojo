@@ -1,9 +1,9 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class DockleParser(object):
+class DockleParser(Parser):
     """
     A class that can be used to parse the Dockle JSON report files
     """
@@ -15,8 +15,7 @@ class DockleParser(object):
         "FATAL": "High",
     }
 
-    def get_scan_types(self):
-        return ["Dockle Scan"]
+    scan_types = ["Dockle Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Dockle Scan"

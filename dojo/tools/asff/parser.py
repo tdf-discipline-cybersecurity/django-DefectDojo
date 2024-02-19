@@ -2,7 +2,7 @@ import json
 import dateutil
 from netaddr import IPAddress
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 SEVERITY_MAPPING = {
     "INFORMATIONAL": "Info",  # No issue was found.
     "LOW": "Low",  # The issue does not require action on its own.
@@ -13,9 +13,8 @@ SEVERITY_MAPPING = {
 }
 
 
-class AsffParser(object):
-    def get_scan_types(self):
-        return ["AWS Security Finding Format (ASFF) Scan"]
+class AsffParser(Parser):
+    scan_types = ["AWS Security Finding Format (ASFF) Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "AWS Security Finding Format (ASFF)"

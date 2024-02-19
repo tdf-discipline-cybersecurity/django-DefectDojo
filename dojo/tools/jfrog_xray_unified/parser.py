@@ -2,13 +2,12 @@ import json
 from datetime import datetime
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class JFrogXrayUnifiedParser(object):
+class JFrogXrayUnifiedParser(Parser):
     """JFrog Xray JSON reports"""
 
-    def get_scan_types(self):
-        return ["JFrog Xray Unified Scan"]
+    scan_types = ["JFrog Xray Unified Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

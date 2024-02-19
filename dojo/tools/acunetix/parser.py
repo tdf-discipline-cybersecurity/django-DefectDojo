@@ -7,15 +7,14 @@ import hyperlink
 from cvss import parser as cvss_parser
 from defusedxml.ElementTree import parse
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class AcunetixParser(object):
+class AcunetixParser(Parser):
     """Parser for Acunetix XML files."""
 
-    def get_scan_types(self):
-        return ["Acunetix Scan"]
+    scan_types = ["Acunetix Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Acunetix Scanner"

@@ -5,13 +5,12 @@ import html2text
 from defusedxml.ElementTree import parse
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class MicrofocusWebinspectParser(object):
+class MicrofocusWebinspectParser(Parser):
     """Micro Focus Webinspect XML report parser"""
 
-    def get_scan_types(self):
-        return ["Microfocus Webinspect Scan"]
+    scan_types = ["Microfocus Webinspect Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

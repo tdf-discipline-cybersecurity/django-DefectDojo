@@ -2,6 +2,7 @@ import json
 import textwrap
 from datetime import datetime
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from .importer import BugcrowdApiImporter
 import re
 import dateutil.parser
@@ -16,13 +17,12 @@ pattern_title_authorized = re.compile(r"^[a-zA-Z0-9_\s+-.]*$")
 logger = logging.getLogger(__name__)
 
 
-class ApiBugcrowdParser(object):
+class ApiBugcrowdParser(Parser):
     """
     Import from Bugcrowd API /submissions
     """
 
-    def get_scan_types(self):
-        return [SCAN_BUGCROWD_API]
+    scan_types = [SCAN_BUGCROWD_API]
 
     def get_label_for_scan_types(self, scan_type):
         return SCAN_BUGCROWD_API

@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class NspParser(object):
-    def get_scan_types(self):
-        return ["Node Security Platform Scan"]
+class NspParser(Parser):
+    scan_types = ["Node Security Platform Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Node Security Platform Scan"

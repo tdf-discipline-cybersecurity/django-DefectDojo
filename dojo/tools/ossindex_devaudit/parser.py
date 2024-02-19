@@ -2,16 +2,15 @@ import json
 from json import JSONDecodeError
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class OssIndexDevauditParser(object):
+class OssIndexDevauditParser(Parser):
     """OssIndex Devaudit Results Parser
     Parses files created by the Sonatype OssIndex Devaudit tool
     https://github.com/sonatype-nexus-community/DevAudit
     """
 
-    def get_scan_types(self):
-        return ["OssIndex Devaudit SCA Scan Importer"]
+    scan_types = ["OssIndex Devaudit SCA Scan Importer"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

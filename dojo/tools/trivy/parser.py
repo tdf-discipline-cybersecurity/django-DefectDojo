@@ -6,7 +6,7 @@ import json
 import logging
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
@@ -45,8 +45,7 @@ LICENSE_DESCRIPTION_TEMPLATE = """{title}
 
 
 class TrivyParser:
-    def get_scan_types(self):
-        return ["Trivy Scan"]
+    scan_types = ["Trivy Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Trivy Scan"

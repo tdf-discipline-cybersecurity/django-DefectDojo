@@ -6,7 +6,7 @@ import logging
 import textwrap
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
@@ -205,9 +205,8 @@ def convert_severity(severity):
         return severity.title()
 
 
-class TwistlockParser(object):
-    def get_scan_types(self):
-        return ["Twistlock Image Scan"]
+class TwistlockParser(Parser):
+    scan_types = ["Twistlock Image Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Twistlock Image Scan"

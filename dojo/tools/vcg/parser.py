@@ -5,7 +5,7 @@ import io
 from defusedxml import ElementTree
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 class VCGFinding(object):
     def get_finding_severity(self):
@@ -199,11 +199,10 @@ class VCGCsvParser(object):
         pass
 
 
-class VCGParser(object):
+class VCGParser(Parser):
     """VCG (VisualCodeGrepper) support CSV and XML"""
 
-    def get_scan_types(self):
-        return ["VCG Scan"]
+    scan_types = ["VCG Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "VCG Scan"

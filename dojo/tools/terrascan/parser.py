@@ -1,9 +1,9 @@
 import json
 import hashlib
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class TerrascanParser(object):
+class TerrascanParser(Parser):
     """
     A class that can be used to parse the terrascan JSON report file
     """
@@ -15,8 +15,7 @@ class TerrascanParser(object):
         "LOW": "Low",
     }
 
-    def get_scan_types(self):
-        return ["Terrascan Scan"]
+    scan_types = ["Terrascan Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Terrascan Scan"

@@ -1,11 +1,10 @@
 from xml.dom import NamespaceErr
 from defusedxml import ElementTree as ET
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class HCLAppScanParser(object):
-    def get_scan_types(self):
-        return ["HCLAppScan XML"]
+class HCLAppScanParser(Parser):
+    scan_types = ["HCLAppScan XML"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

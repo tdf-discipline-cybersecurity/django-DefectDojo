@@ -1,15 +1,14 @@
 import csv
 import io
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class SolarAppscreenerParser(object):
+class SolarAppscreenerParser(Parser):
     """
     SAST scanner
     """
 
-    def get_scan_types(self):
-        return ["Solar Appscreener Scan"]
+    scan_types = ["Solar Appscreener Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Solar Appscreener Scan Detailed_Results.csv"

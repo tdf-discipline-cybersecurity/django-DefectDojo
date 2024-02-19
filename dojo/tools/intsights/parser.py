@@ -5,17 +5,16 @@ import json
 import logging
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class IntSightsParser(object):
+class IntSightsParser(Parser):
     """
     IntSights Threat Intelligence Report
     """
 
     _LOGGER = logging.getLogger(__name__)
 
-    def get_scan_types(self):
-        return ["IntSights Report"]
+    scan_types = ["IntSights Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "IntSights Report"

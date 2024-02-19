@@ -2,19 +2,19 @@ import json
 
 from cvss import parser as cvss_parser
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from .importer import EdgescanImporter
 
 ES_SEVERITIES = {1: "Info", 2: "Low", 3: "Medium", 4: "High", 5: "Critical"}
 SCANTYPE_EDGESCAN = "Edgescan Scan"
 
 
-class ApiEdgescanParser(object):
+class ApiEdgescanParser(Parser):
     """
     Import from Edgescan API or JSON file
     """
 
-    def get_scan_types(self):
-        return [SCANTYPE_EDGESCAN]
+    scan_types = [SCANTYPE_EDGESCAN]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

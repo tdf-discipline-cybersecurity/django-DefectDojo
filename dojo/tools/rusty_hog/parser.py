@@ -1,11 +1,10 @@
 import json
 from dojo.tools.parser_test import ParserTest
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class RustyhogParser(object):
-    def get_scan_types(self):
-        return ["Rusty Hog Scan"]
+class RustyhogParser(Parser):
+    scan_types = ["Rusty Hog Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

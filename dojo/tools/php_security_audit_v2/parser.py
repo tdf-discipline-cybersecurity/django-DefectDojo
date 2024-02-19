@@ -2,11 +2,10 @@ import json
 import math
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class PhpSecurityAuditV2Parser(object):
-    def get_scan_types(self):
-        return ["PHP Security Audit v2"]
+class PhpSecurityAuditV2Parser(Parser):
+    scan_types = ["PHP Security Audit v2"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

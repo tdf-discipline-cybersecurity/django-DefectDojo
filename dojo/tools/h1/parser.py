@@ -3,17 +3,16 @@ import json
 from datetime import datetime
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 __author__ = "Kirill Gotsman"
 
 
-class H1Parser(object):
+class H1Parser(Parser):
     """
     A class that can be used to parse the Get All Reports JSON export from HackerOne API.
     """
 
-    def get_scan_types(self):
-        return ["HackerOne Cases"]
+    scan_types = ["HackerOne Cases"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

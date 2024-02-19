@@ -1,18 +1,18 @@
 import hashlib
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from .importer import BlackduckImporter
 
 
-class BlackduckParser(object):
+class BlackduckParser(Parser):
     """
     Can import as exported from Blackduck:
     - from a zip file containing a security.csv and files.csv
     - a single security.csv file
     """
 
-    def get_scan_types(self):
-        return ["Blackduck Hub Scan"]
+    scan_types = ["Blackduck Hub Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Blackduck Hub Scan"

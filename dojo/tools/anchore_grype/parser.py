@@ -3,16 +3,15 @@ from cvss import parser as cvss_parser
 from cvss.cvss3 import CVSS3
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AnchoreGrypeParser(object):
+class AnchoreGrypeParser(Parser):
     """Anchore Grype JSON report format generated with `-o json` option.
 
     command: `grype defectdojo/defectdojo-django:1.13.1 -o json > many_vulns.json`
     """
 
-    def get_scan_types(self):
-        return ["Anchore Grype"]
+    scan_types = ["Anchore Grype"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Anchore Grype"

@@ -5,13 +5,12 @@ import textwrap
 from datetime import date
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AWSProwlerV3Parser(object):
+class AWSProwlerV3Parser(Parser):
     SCAN_TYPE = ["AWS Prowler V3"]
 
-    def get_scan_types(self):
-        return AWSProwlerV3Parser.SCAN_TYPE
+    scan_types = SCAN_TYPE
 
     def get_label_for_scan_types(self, scan_type):
         return AWSProwlerV3Parser.SCAN_TYPE[0]

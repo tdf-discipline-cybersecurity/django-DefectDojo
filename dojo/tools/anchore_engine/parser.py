@@ -1,11 +1,10 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AnchoreEngineParser(object):
-    def get_scan_types(self):
-        return ["Anchore Engine Scan"]
+class AnchoreEngineParser(Parser):
+    scan_types = ["Anchore Engine Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Anchore Engine Scan"

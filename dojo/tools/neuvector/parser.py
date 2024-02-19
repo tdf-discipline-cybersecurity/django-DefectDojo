@@ -2,7 +2,7 @@ import json
 import logging
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 NEUVECTOR_SCAN_NAME = "NeuVector (REST)"
@@ -129,9 +129,8 @@ def convert_severity(severity):
         return severity.title()
 
 
-class NeuVectorParser(object):
-    def get_scan_types(self):
-        return [NEUVECTOR_SCAN_NAME]
+class NeuVectorParser(Parser):
+    scan_types = [NEUVECTOR_SCAN_NAME]
 
     def get_label_for_scan_types(self, scan_type):
         return NEUVECTOR_SCAN_NAME

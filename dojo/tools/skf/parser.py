@@ -4,7 +4,7 @@ import io
 from datetime import datetime
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 class ColumnMappingStrategy(object):
     mapped_column = None
@@ -63,9 +63,8 @@ class MitigationColumnMappingStrategy(ColumnMappingStrategy):
         finding.mitigation = column_value
 
 
-class SKFParser(object):
-    def get_scan_types(self):
-        return ["SKF Scan"]
+class SKFParser(Parser):
+    scan_types = ["SKF Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

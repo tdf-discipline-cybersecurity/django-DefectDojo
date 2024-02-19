@@ -2,11 +2,11 @@ import json
 import logging
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 
-class DependencyTrackParser(object):
+class DependencyTrackParser(Parser):
     """
     A class that can be used to parse the JSON Finding Packaging Format (FPF) export from OWASP Dependency Track.
 
@@ -238,8 +238,7 @@ class DependencyTrackParser(object):
 
         return finding
 
-    def get_scan_types(self):
-        return ["Dependency Track Finding Packaging Format (FPF) Export"]
+    scan_types = ["Dependency Track Finding Packaging Format (FPF) Export"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

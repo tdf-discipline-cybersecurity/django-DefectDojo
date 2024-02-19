@@ -3,11 +3,10 @@ import hashlib
 import io
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 
-
-class TrustwaveParser(object):
-    def get_scan_types(self):
-        return ["Trustwave Scan (CSV)"]
+class TrustwaveParser(Parser):
+    scan_types = ["Trustwave Scan (CSV)"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Trustwave Scan (CSV)"

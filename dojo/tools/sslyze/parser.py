@@ -1,12 +1,12 @@
 from .parser_json import SSLyzeJSONParser
 from .parser_xml import SSLyzeXMLParser
+from dojo.tools.parser import Parser
 
 
-class SslyzeParser(object):
+class SslyzeParser(Parser):
     """SSLyze support JSON and XML"""
 
-    def get_scan_types(self):
-        return ["SSLyze Scan (JSON)", "Sslyze Scan"]
+    scan_types = ["SSLyze Scan (JSON)", "Sslyze Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

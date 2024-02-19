@@ -6,14 +6,14 @@ import json
 from cvss import parser as cvss_parser
 from dateutil.parser import parse
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from dojo.tools.parser_test import ParserTest
 
 
-class GenericParser(object):
+class GenericParser(Parser):
     ID = "Generic Findings Import"
 
-    def get_scan_types(self):
-        return [self.ID]
+    scan_types = [ID]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

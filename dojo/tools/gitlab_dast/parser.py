@@ -2,15 +2,14 @@ import json
 import hashlib
 from datetime import datetime
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class GitlabDastParser(object):
+class GitlabDastParser(Parser):
     """
     Import GitLab DAST Report in JSON format
     """
 
-    def get_scan_types(self):
-        return ["GitLab DAST Report"]
+    scan_types = ["GitLab DAST Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "GitLab DAST Report"

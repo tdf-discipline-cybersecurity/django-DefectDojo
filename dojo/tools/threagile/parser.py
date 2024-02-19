@@ -1,7 +1,7 @@
 import json
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 RISK_TO_CWE_MAP = {
     "accidental-secret-leak": 200,
     "code-backdooring": 912,
@@ -48,7 +48,7 @@ RISK_TO_CWE_MAP = {
 }
 
 
-class ThreagileParser(object):
+class ThreagileParser(Parser):
     """
     Import ThreaAgile threatmodel risk finding in JSON format
     """
@@ -56,8 +56,7 @@ class ThreagileParser(object):
     REQUIRED_FIELDS = ["category", "title", "severity", "synthetic_id",
                        "exploitation_impact"]
 
-    def get_scan_types(self):
-        return ["Threagile risks report"]
+    scan_types = ["Threagile risks report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Threagile risks report"

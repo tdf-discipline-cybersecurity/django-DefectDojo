@@ -4,11 +4,10 @@ import datetime
 
 from cvss import parser as cvss_parser
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 
-
-class NetsparkerParser(object):
-    def get_scan_types(self):
-        return ["Netsparker Scan"]
+class NetsparkerParser(Parser):
+    scan_types = ["Netsparker Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Netsparker Scan"

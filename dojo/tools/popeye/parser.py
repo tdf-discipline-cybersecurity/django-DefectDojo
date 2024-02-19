@@ -2,15 +2,14 @@ import hashlib
 import json
 import re
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class PopeyeParser(object):
+class PopeyeParser(Parser):
     """
     Popeye is a kubernetes cluster resource analyzer.
     """
 
-    def get_scan_types(self):
-        return ["Popeye Scan"]
+    scan_types = ["Popeye Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Popeye Scan"

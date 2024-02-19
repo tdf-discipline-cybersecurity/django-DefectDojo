@@ -2,11 +2,10 @@ import re
 from openpyxl import load_workbook
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 
 class DsopParser:
-    def get_scan_types(self):
-        return ["DSOP Scan"]
+    scan_types = ["DSOP Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

@@ -3,13 +3,12 @@ import hashlib
 from defusedxml import ElementTree
 
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 __author__ = "properam"
 
 
-class ImmuniwebParser(object):
-    def get_scan_types(self):
-        return ["Immuniweb Scan"]
+class ImmuniwebParser(Parser):
+    scan_types = ["Immuniweb Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

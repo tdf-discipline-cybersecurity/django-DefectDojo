@@ -7,7 +7,7 @@ import re
 import xml.etree.ElementTree
 from datetime import datetime
 from dojo.models import Endpoint, Finding
-
+from dojo.tools.parser import Parser
 try:
     from django.conf.settings import QUALYS_WAS_WEAKNESS_IS_VULN
 except ImportError:
@@ -464,9 +464,8 @@ def qualys_webapp_parser(qualys_xml_file, test, unique, enable_weakness=False):
     return items
 
 
-class QualysWebAppParser(object):
-    def get_scan_types(self):
-        return ["Qualys Webapp Scan"]
+class QualysWebAppParser(Parser):
+    scan_types = ["Qualys Webapp Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

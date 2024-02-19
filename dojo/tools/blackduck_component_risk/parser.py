@@ -1,16 +1,15 @@
 # Author: apipia, wheelsvt
 from .importer import BlackduckCRImporter
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class BlackduckComponentRiskParser(object):
+class BlackduckComponentRiskParser(Parser):
     """
     Can import as exported from Blackduck:
     - from a zip file containing a security.csv, sources.csv and components.csv
     """
 
-    def get_scan_types(self):
-        return ["Blackduck Component Risk"]
+    scan_types = ["Blackduck Component Risk"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Blackduck Component Risk"

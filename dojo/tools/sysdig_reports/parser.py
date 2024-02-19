@@ -1,4 +1,5 @@
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.sysdig_reports.sysdig_csv_parser import CSVParser
 
 from cvss.cvss3 import CVSS3
@@ -6,13 +7,12 @@ import cvss.parser
 import json
 
 
-class SysdigReportsParser(object):
+class SysdigReportsParser(Parser):
     """
     Sysdig Report Importer - Runtime CSV
     """
 
-    def get_scan_types(self):
-        return ["Sysdig Vulnerability Report"]
+    scan_types = ["Sysdig Vulnerability Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Sysdig Vulnerability Report Scan"

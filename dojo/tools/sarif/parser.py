@@ -7,20 +7,19 @@ from django.utils.translation import gettext as _
 
 from dojo.tools.parser_test import ParserTest
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 CWE_REGEX = r"cwe-\d+"
 
 
-class SarifParser(object):
+class SarifParser(Parser):
     """OASIS Static Analysis Results Interchange Format (SARIF) for version 2.1.0 only.
 
     https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif
     """
 
-    def get_scan_types(self):
-        return ["SARIF"]
+    scan_types = ["SARIF"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

@@ -3,11 +3,10 @@ import io
 import csv
 from datetime import datetime
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class AzureSecurityCenterRecommendationsParser(object):
-    def get_scan_types(self):
-        return ["Azure Security Center Recommendations Scan"]
+class AzureSecurityCenterRecommendationsParser(Parser):
+    scan_types = ["Azure Security Center Recommendations Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Azure Security Center Recommendations Scan"

@@ -3,10 +3,11 @@ import textwrap
 from datetime import datetime
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from dojo.tools.parser_test import ParserTest
 
 
-class ScoutSuiteParser(object):
+class ScoutSuiteParser(Parser):
     """"ScoutSuite Wiki: https://github.com/nccgroup/ScoutSuite/wiki"""
 
     ID = "Scout Suite"
@@ -14,8 +15,7 @@ class ScoutSuiteParser(object):
     item_data = ""
     pdepth = 0
 
-    def get_scan_types(self):
-        return [f"{self.ID} Scan"]
+    scan_types = [f"{ID} Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return f"{self.ID} Scan"  # no custom label for now

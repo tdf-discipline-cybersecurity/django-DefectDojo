@@ -6,7 +6,7 @@ import json
 import logging
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 logger = logging.getLogger(__name__)
 
 TRIVY_SEVERITIES = {
@@ -28,8 +28,7 @@ SECRET_DESCRIPTION_TEMPLATE = """{title}
 
 
 class TrivyOperatorParser:
-    def get_scan_types(self):
-        return ["Trivy Operator Scan"]
+    scan_types = ["Trivy Operator Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Trivy Operator Scan"

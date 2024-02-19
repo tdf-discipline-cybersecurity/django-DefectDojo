@@ -1,15 +1,14 @@
 import hashlib
 import json
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class KubeHunterParser(object):
+class KubeHunterParser(Parser):
     """
     kube-hunter hunts for security weaknesses in Kubernetes clusters. The tool was developed to increase awareness and visibility for security issues in Kubernetes environments.
     """
 
-    def get_scan_types(self):
-        return ["KubeHunter Scan"]
+    scan_types = ["KubeHunter Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "KubeHunter Scan"

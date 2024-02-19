@@ -1,12 +1,12 @@
 import json
 
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 from datetime import datetime
 
 
-class DockerBenchParser(object):
-    def get_scan_types(self):
-        return ["docker-bench-security Scan"]
+class DockerBenchParser(Parser):
+    scan_types = ["docker-bench-security Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type  # no custom label for now

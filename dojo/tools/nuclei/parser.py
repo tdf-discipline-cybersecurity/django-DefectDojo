@@ -4,20 +4,19 @@ import logging
 from cvss import parser as cvss_parser
 from dateutil import parser as date_parser
 from dojo.models import Finding, Endpoint
-
+from dojo.tools.parser import Parser
 
 logger = logging.getLogger(__name__)
 
 
-class NucleiParser(object):
+class NucleiParser(Parser):
     """
     A class that can be used to parse the nuclei (https://github.com/projectdiscovery/nuclei) JSON report file
     """
 
     DEFAULT_SEVERITY = "Low"
 
-    def get_scan_types(self):
-        return ["Nuclei Scan"]
+    scan_types = ["Nuclei Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Nuclei Scan"

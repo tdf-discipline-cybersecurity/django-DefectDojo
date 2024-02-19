@@ -1,16 +1,15 @@
 import json
 from datetime import datetime
 from dojo.models import Finding
+from dojo.tools.parser import Parser
 
-
-class GitlabSecretDetectionReportParser(object):
+class GitlabSecretDetectionReportParser(Parser):
     """
     GitLab's secret detection report
     See more: https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/blob/master/dist/secret-detection-report-format.json
     """
 
-    def get_scan_types(self):
-        return ["GitLab Secret Detection Report"]
+    scan_types = ["GitLab Secret Detection Report"]
 
     def get_label_for_scan_types(self, scan_type):
         return "GitLab Secret Detection Report"

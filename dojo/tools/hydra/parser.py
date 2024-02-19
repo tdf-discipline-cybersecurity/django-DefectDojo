@@ -3,6 +3,7 @@ from datetime import date
 import logging
 
 from dojo.models import Finding, Endpoint
+from dojo.tools.parser import Parser
 from django.utils.dateparse import parse_datetime
 
 logger = logging.getLogger(__name__)
@@ -20,13 +21,12 @@ class HydraScanMetadata:
         self.server = generator.get("server")
 
 
-class HydraParser(object):
+class HydraParser(Parser):
     """
     Weak password findings from THC-Hydra (https://github.com/vanhauser-thc/thc-hydra)
     """
 
-    def get_scan_types(self):
-        return ["Hydra Scan"]
+    scan_types = ["Hydra Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Hydra Scan"

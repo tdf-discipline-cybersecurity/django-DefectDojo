@@ -3,7 +3,7 @@ import hashlib
 import io
 
 from dojo.models import Finding
-
+from dojo.tools.parser import Parser
 __author__ = "dr3dd589"
 
 
@@ -25,9 +25,8 @@ class Severityfilter:
             self.severity = "Info"
 
 
-class KiuwanParser(object):
-    def get_scan_types(self):
-        return ["Kiuwan Scan"]
+class KiuwanParser(Parser):
+    scan_types = ["Kiuwan Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return scan_type

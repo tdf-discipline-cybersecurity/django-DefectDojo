@@ -6,6 +6,7 @@ from cvss import CVSS3
 from django.conf import settings
 
 from dojo.models import Endpoint, Finding
+from dojo.tools.parser import Parser
 from dojo.tools.qualys import csv_parser
 
 logger = logging.getLogger(__name__)
@@ -285,9 +286,8 @@ def qualys_parser(qualys_xml_file):
     return finding_list
 
 
-class QualysParser(object):
-    def get_scan_types(self):
-        return ["Qualys Scan"]
+class QualysParser(Parser):
+    scan_types = ["Qualys Scan"]
 
     def get_label_for_scan_types(self, scan_type):
         return "Qualys Scan"
